@@ -5,7 +5,12 @@ describe("Twitter", () => {
   test("should map from twitter api", () => {
     const [tweet] = mock.getTweets();
 
-    // step 4) use expect(actual).toMatchObject(expected)
-    // to verify that the tweet has been properly mapped
+    expect(mapFromApi(tweet)).toMatchObject({
+      id: 874143587189088300,
+      name: "Github Trending",
+      text: "lafikl / consistent: A Go library that implements Consistent Hashing and Consistent Hashing With Bounded Loads. ★158 https://t.co/oPwQnyhM3F",
+      owner: "lafikl",
+      repo: "consistent"
+    });
   });
 });

@@ -15,6 +15,7 @@ class App extends React.Component {
   }
 
   render() {
+    /* Step 2) Inner list component */
     return (
       <ul>
         {this.state.tweets.map(({id, user, owner, repo, languages}) => (
@@ -27,6 +28,7 @@ class App extends React.Component {
           </li>
         ))}
       </ul>
+      /* End of inner list component */
     );
   }
 }

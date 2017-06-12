@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+// import * as service from "./service"; 
 import List from "./list";
 
 class App extends React.Component {
@@ -11,8 +12,10 @@ class App extends React.Component {
   }
 
   componentWillMount() {
+    // Move the fetch logic to the service.js file
     fetch("/api")
       .then((res) => res.json())
+      // Leave the call to this.setState
       .then(tweets => this.setState({tweets}));
   }
 

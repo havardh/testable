@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import List from "./list";
+
 class App extends React.Component {
 
   constructor(props) {
@@ -15,21 +17,7 @@ class App extends React.Component {
   }
 
   render() {
-    /* Step 2) Inner list component */
-    return (
-      <ul>
-        {this.state.tweets.map(({id, user, owner, repo, languages}) => (
-          <li key={id}>
-            <span><a href={`github.com/${owner}/${repo}`}>{owner}/{repo}</a>:&nbsp;</span>
-            <span>
-              {Object.keys((languages || {}))
-                .map((language) => (<span key={language}>{language},&nbsp;</span>))}
-            </span>
-          </li>
-        ))}
-      </ul>
-      /* End of inner list component */
-    );
+    return (<List tweets={this.state.tweets} />);
   }
 }
 

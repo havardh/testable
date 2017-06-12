@@ -16,11 +16,8 @@ const tweets = [
 
 describe("List", () => {
   test("should render a list of tweets", () => {
-    // Step 2)
-    // - Run `yarn run test:watch`
-    // - Replace <div /> with <List tweets={tweets} />
     const list = renderer.create(
-      <div />
+      <List tweets={tweets} />
     ).toJSON();
 
     expect(list).toMatchSnapshot();

@@ -18,11 +18,8 @@ describe("service.get", () => {
       json: () => ([])
     }));
 
-    // Step 3)
-    // call the service method here
+    service.get();
 
-    // use expect(actual).toBe(expected) and
-    // window.fetch.calledWith(expected) to
-    // verify that the service fetches from /api
+    expect(window.fetch.calledWith("/api")).toBe(true);
   });
 });

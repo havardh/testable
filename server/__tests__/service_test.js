@@ -28,22 +28,19 @@ describe("Service", () => {
   })
 
   test("fetch tweets", () => {
-    // Step 5)
-    // Call service.getTrendingLanguages
-    // verify that twitter.getTweets has been called
-    // hint: use stub.calledOnce
+    return service.getTrendingLanguages()
+      .then(() => expect(twitter.getTweets.calledOnce).toBe(true));
   });
 
   test("fetch github repos", () => {
-    // Step 5)
-    // Verify that github.getLanguages has been called with the
-    // results of calling twitter.getTweets
-    // hint: use stub.calledWith
+    return service.getTrendingLanguages()
+      .then(() => expect(github.getLanguages.calledWith(tweet)).toBe(true));
   });
 
   test("should return tweet with languages", () => {
-    // Step 5)
-    // Call the service.getTrendingLanguages()
-    // verify that the result is [{ ...tweet, languages }]
+    const expected = { ...tweet, languages };
+
+    return service.getTrendingLanguages()
+      .then(([actual]) => expect(actual).toEqual(expected));
   });
 });

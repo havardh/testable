@@ -5,6 +5,8 @@ import * as github from "./providers/github";
 const app = express();
 
 app.get("/api", (req, res) => {
+  /* Step 5) extract logic into service.js */
+  /* Call service.getTrendingLanguages() here */
   twitter.getTweets("from: @TrendingGithub")
     .then(tweets => tweets.map((tweet) => {
       return github.getLanguages(tweet)
@@ -15,6 +17,7 @@ app.get("/api", (req, res) => {
          .catch(err => console.log(err));
     }))
     .then(response => Promise.all(response))
+    /* end of logic */
     .then(response => {
       res.json(response);
       res.end();
